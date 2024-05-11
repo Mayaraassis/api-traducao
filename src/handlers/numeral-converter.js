@@ -9,8 +9,8 @@ class TranslateNumberHandler {
         return res.status(404).json({ error: `O número ${numberToConvert} informado não é um número válido` });
       }
 
-      const extension = TranslateService.numberToWords(numberToConvert)
-      return res.json({ extension });
+      const inWords = TranslateService.numberToWords(numberToConvert)
+      return res.json({ inWords });
     } catch (error) {
       console.error('Erro ao traduzir número:', error);
       res.status(500).json({ error: error.message || 'Erro ao traduzir número' });
