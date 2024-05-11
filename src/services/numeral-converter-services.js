@@ -1,6 +1,6 @@
 const units = ['', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove'];
-const specials = ['dez', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove'];
-const tens = ['', 'dez', 'vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta', 'oitenta', 'noventa'];
+const unique = ['dez', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove'];
+const dozens = ['', 'dez', 'vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta', 'oitenta', 'noventa'];
 const hundreds = ['', 'cento', 'duzentos', 'trezentos', 'quatrocentos', 'quinhentos', 'seiscentos', 'setecentos', 'oitocentos', 'novecentos'];
 
 class TranslationService {
@@ -19,11 +19,11 @@ class TranslationService {
     }
 
     if (number < 20) {
-      return specials[number - 10];
+      return unique[number - 10];
     }
 
     if (number < 100) {
-      const ten = tens[Math.floor(number / 10)];
+      const ten = dozens[Math.floor(number / 10)];
       const unit = number % 10 === 0 ? '' : ` and ${units[number % 10]}`;
       return `${ten}${unit}`;
     }
